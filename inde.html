@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mostrar ubicaciones de hoteles en Google Maps</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Estilos opcionales para el contenedor del mapa */
+    .hotel-container {
+      margin-bottom: 20px; /* Margen inferior para separar cada hotel */
+      border: 1px solid #ccc; /* Borde para cada contenedor de hotel */
+      padding: 10px; /* Espaciado interno */
+    }
+    .hotel-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .hotel-map {
+      height: 300px; /* Altura del mapa */
+      width: 100%; /* Ancho del mapa */
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ubicaciones de Hoteles</h1>
+  <a href="https://wa.me/993242511?text=Me%20interesa%20obtener%20más%20información;">asdsa</a>
+
+
+  <!-- Contenedores individuales para cada hotel -->
+  <div id="hotel-container"></div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="hotelModal" tabindex="-1" role="dialog" aria-labelledby="hotelModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="hotelModalLabel">Detalles del Hotel</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <a href="`https://wa.me/${establecimiento.TELEF}?text=Me%20interesa%20obtener%20más%20información`;"></a>
+        <div class="modal-body">
+          <div id="hotelInfo"></div>
+          <div id="hotelMap" class="hotel-map"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script para el código JavaScript que consume la API y muestra el mapa -->
+  <script>
+    let map;
+    let marker;
+
+    // Función para inicializar y cargar el mapa
+    function initMap() {
+      fetch('http://localhost:3000/api/hoteles')
+        .then(response => response.json())
+        .then(data => {
+          data.forEach(hotel => {
+            const hotelContainer = document.createElement('div');
+            hotelContainer.className = 'hotel-container';
+
+            const hotelName = document.createElement('div');
+            hotelName.className = 'hotel-name';
+            hotelName.textContent = hotel.nombre_comercial;
+            hotelContainer.appendChild(hotelName);
+
+            const hotelButton = document.createElement('button');
+            hotelButton.className = 'btn btn-primary';
+            hotelButton.textContent = 'Ver más detalles';
+            hotelButton.onclick = () => showHotelDetails(hotel);
+            hotelContainer.appendChild(hotelButton);
+
+            document.getElementById('hotel-container').appendChild(hotelContainer);
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching hotel data:', error);
+        });
+    }
+
+    // Función para mostrar los detalles del hotel en el modal
+    function showHotelDetails(hotel) {
+      document.getElementById('hotelInfo').innerHTML = `
+        <p><strong>Nombre Comercial:</strong> ${hotel.nombre_comercial}</p>
+        <p><strong>Razón Social:</strong> ${hotel.razon_social}</p>
+        <p><strong>Representante Legal:</strong> ${hotel.representante_legal}</p>
+        <p><strong>Clase:</strong> ${hotel.clase}</p>
+        <p><strong>Dirección:</strong> ${hotel.tipo_via} ${hotel.nombre_via}</p>
+        <p><strong>Distrito:</strong> ${hotel.distrito}</p>
+        <p><strong>Provincia:</strong> ${hotel.provincia}</p>
+        <p><strong>Categoria:</strong> ${hotel.categoria} estrellas</p>
+        <p><strong>Precio:</strong> ${hotel.precio}</p>
+        <p><strong>Teléfono:</strong> ${hotel.TELEF}</p>
+        <img src="${hotel.url}" alt="${hotel.nombre_comercial}" style="width: 100%;">
+      <li><a href="https://wa.me/${hotel.TELEF}?text=Me%20interesa%20obtener%20más%20información" class="btn-primary">Contactar por WhatsApp</a></li>
+
+      `;
+
+      const hotelMapElement = document.getElementById('hotelMap');
+      map = new google.maps.Map(hotelMapElement, {
+        center: { lat: parseFloat(hotel.numero_via), lng: parseFloat(hotel.numero_establecimiento) },
+        zoom: 15
+      });
+
+      marker = new google.maps.Marker({
+        position: { lat: parseFloat(hotel.numero_via), lng: parseFloat(hotel.numero_establecimiento) },
+        map: map,
+        title: hotel.nombre_comercial
+      });
+
+      $('#hotelModal').modal('show');
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDawuJYK4txx6veg5OmEYQQsDhUweJuZuk&callback=initMap" async defer></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

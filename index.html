@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Level HTML Template</title>
+<!--
+
+Template 2095 Level
+
+http://www.tooplate.com/view/2095-level
+
+-->
+    <!-- load stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/datepicker.css"/>
+    <link rel="stylesheet" href="css/tooplate-style.css">                                   <!-- Templatemo style -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min">
+<!-- jQuery and Bootstrap scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script for Google Maps API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+
+
+
+
+
+</head>
+
+    <body>
+        <div class="tm-main-content" id="top">
+            <div class="tm-top-bar-bg"></div>
+            <div class="tm-top-bar" id="tm-top-bar">
+                <!-- Top Navbar -->
+                <div class="container">
+                    <div class="row">
+                        
+                        <nav class="navbar navbar-expand-lg narbar-light">
+                            <a class="navbar-brand mr-auto" href="#">
+                                <img src="img/logo.png" alt="Site logo">
+                                SantaStay
+                            </a>
+                            <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#top">Home <span class="sr-only">(current)</span></a>
+                                    </li>
+                                  
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#tm-section-3">Contáctanos</a>
+                                    </li>
+                                    <li class="nav-item" style="display:flex;align-items: center;"> <div class="search-container ">
+                                        <input type="text" id="search-input" placeholder="Buscar hotel..." class="form-control">
+                                    </div></li>
+                                </ul>
+                            </div>                              
+                        </nav>            
+                    </div>
+                </div>
+            </div>
+            <div class="tm-section tm-bg-img"  id="tm-section-1" style="height: 100px;background-image: url(https://sumakhoteles.com/wp-content/uploads/2023/03/PORTADA-WEB-scaled.jpg);">
+                
+                <div class="tm-bg-white ie-container-width-fix-2">
+                    <h3 style="padding: 1rem; text-align: center;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" >                Hoteles en Santa y lugares donde alojarse
+                    </h3>
+                    <div class="container ie-h-align-center-fix">
+                        <div class="row" style="height: 110px;">
+
+                            <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+                                
+                                <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
+                                    
+                                    <div class="form-row tm-search-form-row" style="display: none;">
+                                        <div class="form-group tm-form-element tm-form-element-100">
+                                            <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+                                            <input name="city" type="text" class="form-control" id="inputCity" placeholder="Type your destination...">
+                                        </div>
+                                        <div class="form-group tm-form-element tm-form-element-50">
+                                            <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
+                                            <input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="Check In">
+                                        </div>
+                                        <div class="form-group tm-form-element tm-form-element-50">
+                                            <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
+                                            <input name="check-out" type="text" class="form-control" id="inputCheckOut" placeholder="Check Out">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row tm-search-form-row">
+                                        
+                                        <div class="form-group tm-form-element tm-form-element-2" style="height: 60px;">                                            
+                <select id="categoria-select" class="form-control tm-select" >
+                    <option value="0">Todas</option>
+                    <option value="1">1 estrellas</option>
+                    <option value="2">2 estrellas</option>
+                    <option value="3">3 estrellas</option>
+                    <option value="4">4 estrellas</option>
+
+                </select>
+
+                <br>
+
+    
+                                        </div>
+                                        <div class="form-group tm-form-element tm-form-element-2" style="height: 60px">                                            
+                        <select id="distrito-select" class="form-control tm-select">
+                            <option value="0">Todos</option>
+                            <option value="Chimbote">Chimbote</option>
+                            <option value="Nvo. Chimbote">Nvo. Chimbote</option>
+                            <option value="Santa">Santa</option>
+                            <option value="Samanco">Samanco</option>
+                        </select>
+                                        </div>
+                                        
+                                        <div class="form-group tm-form-element tm-form-element-2"style="height: 60px">
+                                            <select id="clase-select" class="form-control tm-select">
+                                                <option value="0">Todas</option>
+                                                <option value="Hostal">Hostal</option>
+                                                <option value="Hotel">Hotel</option>
+                                            
+                                            </select>
+                                        </div>
+                                            <div class="form-group tm-form-element tm-form-element-2" style="height: 60px">
+                                              
+                                               <div style="display: flex;">
+                                                <div>
+                                                    <label for="precio-min"> Mínimo:</label>
+                                                    <input class="form-control" type="number" id="precio-min" min="0" value="0" style="width: 120px;height: 12px;">
+                                                    <span id="precio-value-min" style="display: none;">0</span>
+                                                </div>
+                                                
+                                            <div>
+                                                <label for="precio-max"> Máximo:</label>    
+                                                <input class="form-control" type="number" id="precio-max" min="200" max="1000" value="1000" style="width: 120px;height: 12px;">
+                                                <span id="precio-value-max"  style="display: none;">100</span>
+                                            </div>
+                                               </div>
+                                                
+                                            </div>
+                                        
+                                        <div class="form-group tm-form-element tm-form-element-2" >
+                                            <button type="submit" class="btn btn-primary tm-btn-search">Check Availability</button>
+                                        </div>
+                                      </div>
+                                      
+                                </form>
+                            </div>                        
+                        </div>      
+                    </div>
+                </div>                  
+            </div>
+            
+            
+            
+            <br><br><br>
+            <div id="loading-message" class="loader" style="display: none;"></div>
+
+                <div class="container Listado">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                            <div id="establecimientos-list" class="tm-bg-white mr-2 tm-carousel-item">                                                    
+                                   
+                                
+                            </div> 
+                            <div id="no-result-message" style="display: none;">No se encontraron resultados.</div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+                <br><br>
+                  
+            <div class="tm-section tm-bg-img" id="tm-section-3" style="height: auto;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2 class="text-center">Contáctanos</h2>
+                            <p class="text-center">Estamos aquí para ayudarte a encontrar la mejor experiencia en hoteles. Envíanos tus comentarios o quejas y te responderemos lo antes posible.</p>
+                            <div class="form-container">
+                                <form  action="https://formsubmit.co/harles.mendoza@outlook.com" method="POST">
+                                    <fieldset>
+                                        <legend>Envíanos un mensaje</legend>
+                                        <label for="nombre">Nombre:</label>
+                                        <input class="CuadroTexto" type="text" name="nombre" placeholder="Ingresa tu nombre" required/>
+    
+                                        <label for="email">Correo Electrónico:</label>
+                                        <input class="CuadroTexto" type="email" name="email" placeholder="Ingresa tu email" required/>
+    
+                                        <label for="telefono">Número de Teléfono:</label>
+                                        <input class="CuadroTexto" type="tel" name="telefono" pattern="[0-9]{9}" placeholder="Ingresa tu número de teléfono" required/>
+    
+                                        <label for="comentario">Queja o Comentario:</label>
+                                        <textarea name="comentario" rows="6" placeholder="Escribe tu comentario" required></textarea>
+    
+                                        <div style="display: flex; justify-content: space-between;">
+                                            <button class="Botones" type="submit">Enviar</button>
+                                            <button class="Botones" type="reset">Borrar</button>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <!-- Modal -->
+<div class="modal fade" id="hotelModal" tabindex="-1" aria-labelledby="hotelModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="hotelModalLabel">Detalles del Hotel</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <!-- Lado izquierdo: Características del hotel -->
+            <div class="col-md-6">
+              <h5>Características</h5>
+              <ul id="hotelFeatures">
+              </ul>
+            </div>
+            <!-- Lado derecho: Imagen del hotel -->
+            <div class="col">
+                <img id="hotelImage" style="height: 300px;" src="" alt="Imagen del Hotel" class="img-fluid mb-3">
+                <!-- Mapa del hotel -->
+              </div>
+          </div>
+          <div id="hotelMap" style="height: 300px; width: 760px;"></div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+            
+            <footer class="tm-bg-dark-blue">
+                <div class="container">
+                    <div class="row">
+                        <p class="col-sm-12 text-center tm-font-light tm-color-white p-4 tm-margin-b-0">
+                        Copyright &copy; <span class="tm-current-year">2018</span> Your Company
+                        
+                        - Design: Tooplate</p>        
+                    </div>
+                </div>                
+            </footer>
+        </div>
+        
+        <!-- load JS files -->
+        <script src="js/jquery-1.11.3.min.js"></script>             <!-- jQuery (https://jquery.com/download/) -->
+        <script src="js/popper.min.js"></script>                    <!-- https://popper.js.org/ -->       
+        <script src="js/bootstrap.min.js"></script>                 <!-- https://getbootstrap.com/ -->
+        <script src="js/datepicker.min.js"></script>                <!-- https://github.com/qodesmith/datepicker -->
+        <script src="js/jquery.singlePageNav.min.js"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
+        <script src="slick/slick.min.js"></script>                  <!-- http://kenwheeler.github.io/slick/ -->
+        
+
+        <script>
+            const establecimientosList = document.getElementById('establecimientos-list');
+            const categoriaSelect = document.getElementById('categoria-select');
+            const distritoSelect = document.getElementById('distrito-select');
+            const claseSelect = document.getElementById('clase-select');
+            const precioMin = document.getElementById('precio-min');
+            const precioMax = document.getElementById('precio-max');
+            const precioValueMin = document.getElementById('precio-value-min');
+            const precioValueMax = document.getElementById('precio-value-max');
+            const noResultMessage = document.getElementById('no-result-message');
+            const loadingMessage = document.getElementById('loading-message');
+            const searchInput = document.getElementById('search-input');
+            const hotelModal = document.getElementById('hotelModal');
+            const hotelInfo = document.getElementById('hotelInfo');
+            const hotelMap = document.getElementById('hotelMap');
+        
+            let hoteles = [];
+        
+            // Función para mostrar los establecimientos según los filtros seleccionados
+            function mostrarEstablecimientos(filtroCategoria, filtroDistrito, filtroClase, filtroPrecioMin, filtroPrecioMax, textoBusqueda) {
+                loadingMessage.style.display = 'block';
+                noResultMessage.style.display = 'none';
+                establecimientosList.innerHTML = ''; // Limpiar resultados previos
+        
+                fetch('https://3000-harles26-adminhotel-6un0efs0fyr.ws-us115.gitpod.io/api/hoteles')
+                    .then(response => response.json())
+                    .then(data => {
+                        hoteles = data;
+                        loadingMessage.style.display = 'none';
+                        let resultadosEncontrados = false;
+        
+                        let hotelesFiltrados = hoteles.filter(establecimiento => {
+                            const precio = parseInt(establecimiento.precio);
+                            const coincideBusqueda = establecimiento.nombre_comercial.toLowerCase().includes(textoBusqueda.toLowerCase());
+                            return (filtroCategoria === '0' || establecimiento.categoria === filtroCategoria) &&
+                                (filtroDistrito === '0' || establecimiento.provincia === filtroDistrito) &&
+                                (filtroClase === '0' || establecimiento.clase === filtroClase) &&
+                                (precio >= filtroPrecioMin && precio <= filtroPrecioMax) &&
+                                coincideBusqueda;
+                        });
+        
+                        hotelesFiltrados.forEach(establecimiento => {
+                            resultadosEncontrados = true;
+        
+                            const article = document.createElement('article');
+                            article.classList.add('tm-bg-white', 'mr-2', 'tm-carousel-item');
+        
+                            const img = document.createElement('img');
+                            img.src = establecimiento.url;
+                            img.alt = establecimiento.nombre_comercial;
+        
+                            const div = document.createElement('div');
+                            div.classList.add('tm-article-pad');
+        
+                            const header = document.createElement('header');
+                            const h3 = document.createElement('h3');
+                            h3.classList.add('text-uppercase', 'tm-article-title-2');
+                            h3.textContent = establecimiento.nombre_comercial;
+                            header.appendChild(h3);
+        
+                            const p = document.createElement('p');
+                            p.textContent = `Categoría: ${establecimiento.categoria}, Distrito: ${establecimiento.provincia}, Clase: ${establecimiento.clase}, Precio: ${establecimiento.precio}`;
+        
+                           
+                            const aMasInfo = document.createElement('button');
+                            aMasInfo.classList.add('text-uppercase', 'btn-primary', 'tm-btn-primary');
+                            aMasInfo.textContent = 'Más Información';
+                            aMasInfo.onclick = () => showHotelDetails(establecimiento);
+        
+                            div.appendChild(header);
+                            div.appendChild(p);
+                            div.appendChild(aMasInfo);
+        
+                            article.appendChild(img);
+                            article.appendChild(div);
+        
+                            establecimientosList.appendChild(article);
+                        });
+        
+                        if (!resultadosEncontrados) {
+                            noResultMessage.style.display = 'block';
+                        } else {
+                            noResultMessage.style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error al obtener los datos:', error);
+                        loadingMessage.style.display = 'none';
+                    });
+            }
+        
+            // Función para mostrar los detalles del hotel en el modal
+            function showHotelDetails(hotel) {
+    const hotelFeatures = document.getElementById('hotelFeatures');
+    hotelFeatures.innerHTML = `
+        <li>Nombre Comercial: ${hotel.nombre_comercial}</li>
+        <li>Razón Social: ${hotel.razon_social}</li>
+        <li>Representante Legal: ${hotel.representante_legal}</li>
+        <li>Clase: ${hotel.clase}</li>
+        <li>Tipo de Vía: ${hotel.tipo_via}</li>
+        <li>Nombre de la Vía: ${hotel.nombre_via}</li>
+        <li>Distrito: ${hotel.distrito}</li>
+        <li>Provincia: ${hotel.provincia}</li>
+        <li>Categoría: ${hotel.categoria}</li>
+        <li>Precio: ${hotel.precio}</li>
+        <li>Teléfono: ${hotel.TELEF}</li>
+        <br>
+        <li><a href="https://wa.me/${hotel.TELEF}?text=Me%20interesa%20obtener%20más%20información" class="btn-primary">Contactar por WhatsApp</a></li>
+    `;
+
+    const hotelImage = document.getElementById('hotelImage');
+    hotelImage.src = hotel.url;
+    hotelImage.alt = hotel.nombre_comercial;
+
+    const map = new google.maps.Map(document.getElementById('hotelMap'), {
+        center: { lat: parseFloat(hotel.numero_via), lng: parseFloat(hotel.numero_establecimiento) },
+        zoom: 15
+    });
+
+    new google.maps.Marker({
+        position: { lat: parseFloat(hotel.numero_via), lng: parseFloat(hotel.numero_establecimiento) },
+        map: map,
+        title: hotel.nombre_comercial
+    });
+
+    $('#hotelModal').modal('show');
+}
+
+        
+            searchInput.addEventListener('input', () => {
+                mostrarEstablecimientos(
+                    categoriaSelect.value,
+                    distritoSelect.value,
+                    claseSelect.value,
+                    parseInt(precioMin.value),
+                    parseInt(precioMax.value),
+                    searchInput.value
+                );
+            });
+        
+            categoriaSelect.addEventListener('change', () => {
+                mostrarEstablecimientos(
+                    categoriaSelect.value,
+                    distritoSelect.value,
+                    claseSelect.value,
+                    parseInt(precioMin.value),
+                    parseInt(precioMax.value),
+                    searchInput.value
+                );
+            });
+        
+            distritoSelect.addEventListener('change', () => {
+                mostrarEstablecimientos(
+                    categoriaSelect.value,
+                    distritoSelect.value,
+                    claseSelect.value,
+                    parseInt(precioMin.value),
+                    parseInt(precioMax.value),
+                    searchInput.value
+                );
+            });
+        
+            claseSelect.addEventListener('change', () => {
+                mostrarEstablecimientos(
+                    categoriaSelect.value,
+                    distritoSelect.value,
+                    claseSelect.value,
+                    parseInt(precioMin.value),
+                    parseInt(precioMax.value),
+                    searchInput.value
+                );
+            });
+        
+            precioMin.addEventListener('input', () => {
+                precioValueMin.textContent = precioMin.value;
+                mostrarEstablecimientos(
+                    categoriaSelect.value,
+                    distritoSelect.value,
+                    claseSelect.value,
+                    parseInt(precioMin.value),
+                    parseInt(precioMax.value),
+                    searchInput.value
+                );
+            });
+        
+            precioMax.addEventListener('input', () => {
+                precioValueMax.textContent = precioMax.value;
+                mostrarEstablecimientos(
+                    categoriaSelect.value,
+                    distritoSelect.value,
+                    claseSelect.value,
+                    parseInt(precioMin.value),
+                    parseInt(precioMax.value),
+                    searchInput.value
+                );
+            });
+        
+            // Mostrar todos los establecimientos al cargar la página
+            mostrarEstablecimientos('0', '0', '0', parseInt(precioMin.value), parseInt(precioMax.value), '');
+        </script>
+        
+        
+
+          <script>
+            var map = '';
+            var center;
+
+            function initialize() {
+                var mapOptions = {
+                    zoom: 16,
+                    center: new google.maps.LatLng(13.7567928,100.5653741),
+                    scrollwheel: false
+                };
+
+                map = new google.maps.Map(document.getElementById('google-map'),  mapOptions);
+
+                google.maps.event.addDomListener(map, 'idle', function() {
+                  calculateCenter();
+              });
+
+                google.maps.event.addDomListener(window, 'resize', function() {
+                  map.setCenter(center);
+              });
+            }
+
+
+            function setCarousel() {
+                
+                if ($('.tm-article-carousel').hasClass('slick-initialized')) {
+                    $('.tm-article-carousel').slick('destroy');
+                } 
+
+                if($(window).width() < 438){
+                    // Slick carousel
+                    $('.tm-article-carousel').slick({
+                        infinite: false,
+                        dots: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    });
+                }
+                else {
+                 $('.tm-article-carousel').slick({
+                        infinite: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    });   
+                }
+            }
+
+            function setPageNav(){
+                if($(window).width() > 991) {
+                    $('#tm-top-bar').singlePageNav({
+                        currentClass:'active',
+                        offset: 79
+                    });   
+                }
+                else {
+                    $('#tm-top-bar').singlePageNav({
+                        currentClass:'active',
+                        offset: 65
+                    });   
+                }
+            }
+
+            function calculateCenter() {
+                center = map.getCenter();
+            }
+
+            function loadGoogleMap(){
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDawuJYK4txx6veg5OmEYQQsDhUweJuZuk&v=3.exp&sensor=false&' + 'callback=initialize';
+                document.body.appendChild(script);
+            } 
+            function togglePlayPause() {
+                vid = $('.tmVideo').get(0);
+
+                if(vid.paused) {
+                    vid.play();
+                    $('.tm-btn-play').hide();
+                    $('.tm-btn-pause').show();
+                }
+                else {
+                    vid.pause();
+                    $('.tm-btn-play').show();
+                    $('.tm-btn-pause').hide();   
+                }  
+            }
+       
+            $(document).ready(function(){
+
+                $(window).on("scroll", function() {
+                    if($(window).scrollTop() > 100) {
+                        $(".tm-top-bar").addClass("active");
+                    } else {
+                        //remove the background property so it comes transparent again (defined in your css)
+                       $(".tm-top-bar").removeClass("active");
+                    }
+                });      
+
+                // Google Map
+                loadGoogleMap();  
+
+                // Date Picker
+                const pickerCheckIn = datepicker('#inputCheckIn');
+                const pickerCheckOut = datepicker('#inputCheckOut');
+                
+                // Slick carousel
+                setCarousel();
+                setPageNav();
+
+                $(window).resize(function() {
+                  setCarousel();
+                  setPageNav();
+                });
+
+                // Close navbar after clicked
+                $('.nav-link').click(function(){
+                    $('#mainNav').removeClass('show');
+                });
+
+                // Control video
+                $('.tm-btn-play').click(function() {
+                    togglePlayPause();                                      
+                });
+
+                $('.tm-btn-pause').click(function() {
+                    togglePlayPause();                                      
+                });
+
+                // Update the current year in copyright
+                $('.tm-current-year').text(new Date().getFullYear());                           
+            });
+
+        </script>             
+
+</body>
+</html>
+
+<style>
+  
+        .tm-top-bar-bg {
+            background-color: #343a40;
+            height: 50px;
+            width: 100%;
+        }
+        .tm-top-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+ 
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .form-container fieldset {
+            border: none;
+        }
+        .form-container legend {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .form-container .CuadroTexto, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-container .Botones {
+            width: 48%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .form-container .Botones[type="reset"] {
+            background-color: #dc3545;
+        }
+        .form-container .Botones:hover {
+            opacity: 0.9;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+    article {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        width: 60%;
+        padding: 0;
+    }
+    #establecimientos-list {
+            display: grid;
+            grid-template-columns: repeat(3, 25%); 
+            list-style: none;
+            width: 1800px;
+        }
+
+    #establecimientos-list img{
+        width: 270px;
+        height: 250px;
+    }
+  
+    .loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid rgb(241, 32, 32); /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  margin-left: 42rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+
